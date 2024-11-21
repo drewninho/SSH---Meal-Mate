@@ -13,7 +13,7 @@ import java.util.*;
 public class SEPP {
     private static List<productclass> product = new ArrayList<>();
     private static List<recipeclass> recipe = new ArrayList<>();
-    //private static cart Cart = new cart();
+    private static cart Cart = new cart();
     
     public static void main (String[] args){
         initializeData();
@@ -25,9 +25,9 @@ public class SEPP {
             System.out.println("2. View Recipes");
             System.out.println("3. Check Product Stock");
             System.out.println("4. Suggest Recipe");
-            //System.out.println("5. Add to Cart");
-            //System.out.println("6. View Cart");
-            //System.out.println("7. Proceed to Payment");
+            System.out.println("5. Add to Cart");
+            System.out.println("6. View Cart");
+            System.out.println("7. Proceed to Payment");
             System.out.println("8. Exit");
             System.out.print("Choose an option: ");
             
@@ -39,9 +39,9 @@ public class SEPP {
                 case 2 -> viewrecipe();
                 case 3 -> checkproductstock(scanner);
                 case 4 -> suggestrecipe();
-                //case 5 -> addtocart(scanner);
-                //case 6 -> Cart.viewcart();
-                //case 7 -> payment(scanner);
+                case 5 -> addtocart(scanner);
+                case 6 -> Cart.viewcart();
+                case 7 -> payment(scanner);
                 case 8 -> {
                     System.out.println("Exiting...");
                     return;
@@ -104,5 +104,46 @@ public class SEPP {
             recipes.displayrecipe();
         } 
     }
+    
+    private static void addtocart(Scanner scanner){
+    System.out.println("\nEnter the product name to add to cart");
+    String name = scanner.nextLine();
+    boolean found = false;
+    
+    for (productclass products : product){
+        if (products.getname().equalsIgnoreCase(name)){
+        System.out.println("Enter quantity");
+        int quantity = scanner.nextInt();
+        
+        Cart.addtocart(products, quantity);
+        found = true;
+        break; //Exit the loop after adding the product into the cart
+    } 
+  }
+    if (!found){
+        System.out.println("Product not found");
+    }
+}
+
+private static void payment(Scanner scanner){
+    Cart.viewcart();
+    double total = Cart.calculatecost();
+    
+    if (total == 0) {
+        System.out.println("Cart is empty, please add some items to it");
+}
+    System.out.println("Total amount to pay : " + total);
+    System.out.println("Enter the payable amount : ");
+    double payments = scanner.nextDouble();
+    scanner.nextLine();
+    
+    if (payments >= total){
+        System.out.println("Payment successful");
+        Cart.clearcart();
+        System.out.println("Thank you for shoppoing with the app");
+    } else {
+        System.out.println("Insufficient Funds");
+   }   
+}
 }    
     

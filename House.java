@@ -1,12 +1,13 @@
 import java.util.List;
 import java.util.ArrayList;
-import StudentInfo.java
+import StudentInfo.java;
 
 
 
 public class House{
-
+    
     List<StudentInfo> studentList = new ArrayList<>();
+    int numStudents = studentList.size();
     int totaldeliveryfee = 10;
     int activeStudents = 0;
     int total = 0;
@@ -57,6 +58,6 @@ public class House{
     }
     public String add_student(String name, int ID, int age, String paymentInfo){
         StudentInfo newStudent = new StudentInfo(name,ID,age,paymentInfo);
-        
+        this.studentList.set(numStudents++,newStudent);
     }
 }

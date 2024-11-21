@@ -11,12 +11,22 @@ public class House{
     int total = 0;
     String address = "Computer Science Building, University of Birmingham, Edgbaston, Birmingham, B15 2TT";
 
+    public int get_subtotal(){
+        this.total = 0;
+        for (int x = 0; x < this.studentList.size(); x++){
+            Student current = this.studentList.get(x);
+            this.total += current.basket_total();
+        }
+        return total;
+    }
+    
     public int get_total(){
         this.total = 0;
         for (int x = 0; x < this.studentList.size(); x++){
             Student current = this.studentList.get(x);
             this.total += current.basket_total();
         }
+        this.total += this.totaldeliveryFee;
         return total;
     }
 

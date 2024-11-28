@@ -61,4 +61,10 @@ public class cart {
     public void clearcart(){
         cartitems.clear();
     }
+    public boolean cartactivity(){
+        if (cartitems.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
 }

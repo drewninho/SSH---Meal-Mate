@@ -1,4 +1,4 @@
-import java.util.List;
+package SEPP; 
 import java.util.ArrayList;
 
 public class StudentInfo {
@@ -6,18 +6,19 @@ public class StudentInfo {
     private int studentId;
     private String paymentInfo;
     private int age;
-    private ArrayList<String> basket;
+    private cart basket;
+    private double deliveryFee = 0.00;
 
     public StudentInfo(String name, int studentId, String paymentInfo, int age) {
         this.name = name;
         this.studentId = studentId;
         this.paymentInfo = paymentInfo;
         this.age = age;
-        //this.basket = new ArrayList<>();
+        this.basket = new cart();
     }
 
-    public void addProduct(String product) {
-        basket.add(product);
+    public void addProduct(productclass item, int quantity) {
+        basket.addtocart(item , quantity);
     }
 
     /*public String viewBasket() {
@@ -42,4 +43,17 @@ public class StudentInfo {
     public int getAge() {
         return age;
     }
+    public double getSubtotal() {
+        return this.basket.calculatecost();
+    }
+    public boolean getActivity(){
+        return (basket.cartactivity());
+    }
+    public void setDeliveryFee(double fee){
+        this.deliveryFee = fee;
+    }
+    public double getTotal(){
+        return this.basket.calculatecost() + this.deliveryFee;
+    }
+    
 }

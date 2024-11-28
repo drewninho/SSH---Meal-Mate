@@ -3,14 +3,14 @@ import java.util.ArrayList;
 
 public class StudentInfo {
     private String name;
-    private int studentId;
+    private int studentID;
     private String paymentInfo;
     private int age;
     private ArrayList<String> basket;
 
-    public StudentInfo(String name, int studentId, String paymentInfo, int age) {
+    public StudentInfo(String name, int studentID, String paymentInfo, int age) {
         this.name = name;
-        this.studentId = studentId;
+        this.studentID = studentID;
         this.paymentInfo = paymentInfo;
         this.age = age;
         //this.basket = new ArrayList<>();
@@ -31,7 +31,7 @@ public class StudentInfo {
         return name;
     }
 
-    public int getStudentId() {
+    public int getStudentID() {
         return studentId;
     }
 

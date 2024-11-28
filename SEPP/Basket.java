@@ -1,3 +1,4 @@
+package SEPP;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class Basket {
 
     
     public double getBasketTotal() {
-        return products.size() 
+        return products.size();
     }
 
     public List<String> getProducts() {
@@ -48,7 +49,7 @@ public class Basket {
     }
 
     public boolean isordering() {
-        return active;
+        return ordering;
     }
 
     public StudentInfo getStudent() {

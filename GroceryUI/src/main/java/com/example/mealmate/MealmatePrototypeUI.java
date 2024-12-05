@@ -1,19 +1,29 @@
 package com.example.mealmate;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MealmatePrototypeUI extends Application {
 
@@ -81,9 +91,9 @@ public class MealmatePrototypeUI extends Application {
 
         loginLayout.getChildren().addAll(
                 titleLabel,
-                new Label("Student ID:"),
+                new Label("Student ID: (use 'admin' for username)"),
                 studentIdField,
-                new Label("Password:"),
+                new Label("Password: (use 'admin' for password)"),
                 passwordField,
                 loginButton,
                 errorLabel
